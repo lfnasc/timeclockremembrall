@@ -1,0 +1,30 @@
+{
+  "name": "timeclockremembrall",
+  "version": "1.0.0",
+  "description": "This extension aims to provide notifications so that you always remember to clock-in and clock-out at work. Further, it show to you when your workday will finished and other interesting informations.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfnasc/timeclockremembrall.git"
+  },
+  "keywords": [
+    "Time",
+    "Clock",
+    "Remembrall",
+    "Clock-in",
+    "Clock-out",
+    "Interval",
+    "Workday",
+    "Chrome",
+    "Extension"
+  ],
+  "author": "Leonardo Nascimento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lfnasc/timeclockremembrall/issues"
+  },
+  "homepage": "https://github.com/lfnasc/timeclockremembrall#readme"
+}
