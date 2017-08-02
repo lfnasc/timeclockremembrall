@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Time Clock Remembrall",
+  "description": "This extension aims to provide notifications so that you
+  always remember to clock-in and clock-out at work. Further, it show to you
+  when your workday will finished and other interesting informations.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}
