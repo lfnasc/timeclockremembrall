@@ -5,6 +5,20 @@
   always remember to clock-in and clock-out at work. Further, it show to you
   when your workday will finished and other interesting informations.",
   "version": "1.0",
+  "browser_action": {
+    "default_icon": {
+      "16" : "images/icon16.png",
+      "32" : "images/icon32.png",
+      "48" : "images/icon48.png",
+      "128" : "images/icon128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Time Clock Remembrall"
+  },
+  "icons" : {
+    "48" : "images/icon48.png",
+    "128" : "images/icon128.png"
+  },
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"
