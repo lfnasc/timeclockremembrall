@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/lfnasc/timeclockremembrall/issues"
   },
-  "homepage": "https://github.com/lfnasc/timeclockremembrall#readme"
+  "homepage": "https://github.com/lfnasc/timeclockremembrall#readme",
+  "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0"
+  }
 }
