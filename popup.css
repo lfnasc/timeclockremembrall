@@ -1,4 +1,77 @@
 body {
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   font-size: 100%;
+  padding: 10px;
+}
+
+.screen {
+  width: auto;
+  height: auto;
+}
+
+.notice {
+  width: 300px;
+}
+
+.notice__label {
+  text-align: center;
+  font-size: 12px;
+}
+
+.alarm {
+  width: 300px;
+  height: 70px;
+}
+
+.alarm__label {
+  text-align: center;
+  font-size: 12px;
+}
+
+.alarm__label--in {
+  color: green;
+}
+
+.alarm__label--out {
+  color: red;
+}
+
+.time {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.time_label {
+  font-size: 11px;
+  display: inline-block;
+}
+
+.time__hselect {
+  width: 50px;
+  display: inline-block;
+}
+
+.time__hselect--in {
+  background-color: green;
+  color: white;
+}
+
+.time__hselect--out {
+  background-color: red;
+  color: white;
+}
+
+.time__mselect {
+  width: 50px;
+  display: inline-block;
+}
+
+.time__mselect-in {
+  background-color: green;
+  color: white;
+}
+
+.time__mselect--out {
+  background-color: red;
+  color: white;
 }

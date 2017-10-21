@@ -2,6 +2,7 @@
     "extends": "rallycoding",
     "globals": {
       "localStorage": true,
-      "chrome": true
+      "chrome": true,
+      "document": true;
     }
 }

@@ -6,6 +6,59 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <p>Hello world!</p>
+    <div id="alarm-screen" class="screen">
+      <div id="alarm-notice" class="notice">
+        <p class="notice__label">
+          Welcome!<br><br>
+          Please, set the alarms as you wish to be remembered.
+          According to the alarms the Time Clock Remembrall will turn red to
+          remind you to check the time clock.<br>
+        </p>
+      </div>
+      <div id="alarm-clock-in" class="alarm">
+        <p class="alarm__label alarm__label--in">Clock-in:</p>
+        <div class="time">
+          <p class="time_label">HH:</p>
+          <select id="time-clock-in-hour" class="time__hselect time__hselect--in">
+          </select>
+          <p class="time_label">mm:</p>
+          <select id="time-clock-in-minutes" class="time__mselect time__mselect-in">
+          </select>
+        </div>
+      </div>
+      <div id="alarm-interval-in" class="alarm">
+        <p class="alarm__label alarm__label--out">Interval-in:</p>
+        <div class="time">
+          <p class="time_label">HH:</p>
+          <select id="time-interval-in-hour" class="time__hselect time__hselect--out">
+          </select>
+          <p class="time_label">mm:</p>
+          <select id="time-interval-in-minutes" class="time__mselect time__mselect--out">
+          </select>
+        </div>
+      </div>
+      <div id="alarm-interval-out" class="alarm">
+        <p class="alarm__label alarm__label--in">Interval-out:</p>
+        <div class="time">
+          <p class="time_label">HH:</p>
+          <select id="time-interval-out-hour" class="time__hselect time__hselect--in">
+          </select>
+          <p class="time_label">mm:</p>
+          <select id="time-interval-out-minutes" class="time__mselect time__mselect-in">
+          </select>
+        </div>
+      </div>
+      <div id="alarm-clock-out" class="alarm">
+        <p class="alarm__label alarm__label--out">Clock-out:</p>
+        <div class="time">
+          <p class="time_label">HH:</p>
+          <select id="time-clock-out-hour" class="time__hselect time__hselect--out">
+          </select>
+          <p class="time_label">mm:</p>
+          <select id="time-clock-out-minutes" class="time__mselect time__mselect--out">
+          </select>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
