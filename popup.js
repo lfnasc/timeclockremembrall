@@ -7,6 +7,16 @@ const sendMessage = (message, callback) => {
   );
 };
 
+const sendMessageWithOptions = (message, options, callback) => {
+  chrome.extension.sendMessage(
+    {
+      message,
+      options
+    },
+    callback
+  );
+};
+
 const formatTimeNumber = number => (number > 9 ? `${number}` : `0${number}`);
 
 const setAlarmSelect = () => {
@@ -20,14 +30,27 @@ const setAlarmSelect = () => {
     }
   });
 
-  const mSelect = document.getElementsByClassName('time__mselect');
-  [...mSelect].forEach(select => {
+  const mSelects = document.getElementsByClassName('time__mselect');
+  [...mSelects].forEach(select => {
     for (let i = 0; i < 60; i++) {
       const option = document.createElement('option');
       option.text = formatTimeNumber(i);
       option.value = formatTimeNumber(i);
       select.add(option);
     }
+  });
+
+  const selects = document.getElementsByTagName('select');
+  [...selects].forEach(select => {
+    select.addEventListener('change', () => {
+      const options = {
+        selectId: select.id,
+        selectValue: select.value
+      };
+      sendMessageWithOptions('SET-ALARM', options, response => {
+        console.log(response);
+      });
+    });
   });
 
   sendMessage('GET-ALARMS', response => {

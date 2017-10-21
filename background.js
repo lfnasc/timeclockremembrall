@@ -8,6 +8,22 @@ const getAlarmStoraged = (type) => (getLocalStorageItem(type));
 
 const createAlarm = (name, alarmInfo) => chrome.alarms.create(name, alarmInfo);
 
+const setAlarm = (type, selectId, selectValue) => {
+  const sTime = getAlarmStoraged(type);
+  const cTime = sTime.split(' ')[4];
+  const t = cTime.split(':');
+  if (selectId.indexOf('hour') !== -1) {
+    t[0] = selectValue;
+  } else {
+    t[1] = selectValue;
+  }
+  const nTime = t.join(':');
+  const time = sTime.replace(cTime, nTime);
+  const newTime = new Date(time);
+  setAlarmStoraged(type, newTime.toString());
+  createAlarm(type, { when: newTime.getTime() });
+};
+
 const verifyAlarm = (type) => {
   const alarmStoraged = getAlarmStoraged(type);
   if (alarmStoraged) {
@@ -86,7 +102,42 @@ chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
       intervalOut,
       clockOut
     });
+  } else if (request.message === 'SET-ALARM') {
+    const selectId = request.options.selectId;
+    const selectValue = request.options.selectValue;
+
+    switch (selectId) {
+      case 'time-clock-in-hour':
+        setAlarm('clock-in', selectId, selectValue);
+        break;
+      case 'time-clock-in-minutes':
+        setAlarm('clock-in', selectId, selectValue);
+        break;
+      case 'time-interval-in-hour':
+        setAlarm('interval-in', selectId, selectValue);
+        break;
+      case 'time-interval-in-minutes':
+        setAlarm('interval-in', selectId, selectValue);
+        break;
+      case 'time-interval-out-hour':
+        setAlarm('interval-out', selectId, selectValue);
+        break;
+      case 'time-interval-out-minutes':
+        setAlarm('interval-out', selectId, selectValue);
+        break;
+      case 'time-clock-out-hour':
+        setAlarm('clock-out', selectId, selectValue);
+        break;
+      case 'time-clock-out-minutes':
+        setAlarm('clock-out', selectId, selectValue);
+        break;
+      default:
+    }
   }
+
+  sendResponse({
+    result: 'alarm setted!'
+  });
 });
 
 // initialize background
