@@ -1,3 +1,12 @@
+const sendMessage = (message, callback) => {
+  chrome.extension.sendMessage(
+    {
+      message
+    },
+    callback
+  );
+};
+
 const formatTimeNumber = number => (number > 9 ? `${number}` : `0${number}`);
 
 const setAlarmSelect = () => {
@@ -10,6 +19,7 @@ const setAlarmSelect = () => {
       select.add(option);
     }
   });
+
   const mSelect = document.getElementsByClassName('time__mselect');
   [...mSelect].forEach(select => {
     for (let i = 0; i < 60; i++) {
@@ -18,6 +28,17 @@ const setAlarmSelect = () => {
       option.value = formatTimeNumber(i);
       select.add(option);
     }
+  });
+
+  sendMessage('GET-ALARMS', response => {
+    document.getElementById('time-clock-in-hour').value = response.clockIn.split(':')[0];
+    document.getElementById('time-clock-in-minutes').value = response.clockIn.split(':')[1];
+    document.getElementById('time-interval-in-hour').value = response.intervalIn.split(':')[0];
+    document.getElementById('time-interval-in-minutes').value = response.intervalIn.split(':')[1];
+    document.getElementById('time-interval-out-hour').value = response.intervalOut.split(':')[0];
+    document.getElementById('time-interval-out-minutes').value = response.intervalOut.split(':')[1];
+    document.getElementById('time-clock-out-hour').value = response.clockOut.split(':')[0];
+    document.getElementById('time-clock-out-minutes').value = response.clockOut.split(':')[1];
   });
 };
 

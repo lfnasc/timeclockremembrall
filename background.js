@@ -73,5 +73,21 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
 });
 
+chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.message === 'GET-ALARMS') {
+    const clockIn = getAlarmStoraged('clock-in').split(' ')[4];
+    const intervalIn = getAlarmStoraged('interval-in').split(' ')[4];
+    const intervalOut = getAlarmStoraged('interval-out').split(' ')[4];
+    const clockOut = getAlarmStoraged('clock-out').split(' ')[4];
+
+    sendResponse({
+      clockIn,
+      intervalIn,
+      intervalOut,
+      clockOut
+    });
+  }
+});
+
 // initialize background
 init();
