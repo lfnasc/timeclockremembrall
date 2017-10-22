@@ -1,3 +1,28 @@
-.tcr--notice {
-  /* Here the styles of Time Clock Remembrall */
+.tcremembrall {
+  width: auto;
+  height: auto;
+  position: fixed;
+  right: 30px;
+  top: 100px;
+  float: right;
+  z-index: 1000;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tcremembrall__logo {
+  width: auto;
+  height: auto;
+}
+
+.tcremembrall__label {
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  color: black;
+  font-size: 12px;
+  background-color: #e3e3e3;
+  padding: 5px;
+  border: solid 1px #e3e3e3;
+  border-radius: 5px;
 }

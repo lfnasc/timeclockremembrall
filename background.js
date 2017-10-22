@@ -2,6 +2,8 @@ const setLocalStorageItem = (key, value) => localStorage.setItem(key, value);
 
 const getLocalStorageItem = (key) => (localStorage.getItem(key) || false);
 
+const setStatusStoraged = (status) => setLocalStorageItem('status', status);
+
 const setAlarmStoraged = (type, time) => setLocalStorageItem(type, time);
 
 const getAlarmStoraged = (type) => (getLocalStorageItem(type));
@@ -75,15 +77,19 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   switch (alarm.name) {
     case 'clock-in':
       console.log('Fired an alarm type clock-in!');
+      setStatusStoraged('clock-in');
       break;
     case 'interval-in':
       console.log('Fired an alarm type interval-in!');
+      setStatusStoraged('interval-in');
       break;
     case 'interval-out':
       console.log('Fired an alarm type inteval-out!');
+      setStatusStoraged('interval-out');
       break;
     case 'clock-out':
       console.log('Fired an alarm type clock-out!');
+      setStatusStoraged('clock-out');
       break;
     default:
   }
